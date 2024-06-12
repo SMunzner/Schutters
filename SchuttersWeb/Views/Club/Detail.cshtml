@@ -1,0 +1,23 @@
+﻿@model Club
+@{
+    ViewData["Title"] = "Detail";
+}
+@if (Model != null) {
+    <h1>Details</h1>
+    <h2>Club</h2>
+    <p>Stamnr : @Model.Stamnummer</p>
+    <p>Clubnaam : @Model.Naam</p>
+    <p>Postcode : @Model.Postcode</p>
+    <p>Gemeente : @Model.Gemeente</p>
+    <p>Adres : @Model.Adres</p>
+}
+else{
+    <p class="btn btn-danger">@ViewBag.ErrorMessage</p>
+}
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Stamnummer">Edit</a>
+    |
+    <a asp-action="Index">Back to List</a>
+</div>
+

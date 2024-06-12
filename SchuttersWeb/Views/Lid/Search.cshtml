@@ -1,0 +1,63 @@
+﻿@model LidZoekenViewModel
+@{
+    ViewData["Title"] = "Search";
+}
+<h2>Leden zoeken</h2>
+<form asp-action="SearchMetModifiers" method="get">
+    <div>
+        <label asp-for="Voornaam"></label>
+        <input asp-for="Voornaam" />
+
+        <br />
+
+        <label asp-for="Naam"></label>
+        <input asp-for="Naam" />
+
+        <br />
+
+        <label asp-for="Geslacht"></label>
+        <input asp-for="Geslacht" />
+
+        <br />
+
+        <label asp-for="Niveau"></label>
+        <input asp-for="Niveau" />
+
+        <br />
+
+        <label asp-for="ClubNaam"></label>
+        <input asp-for="ClubNaam" />
+    </div>
+    <input type="submit" value="Zoeken" class="btn btn-primary ms-3 mt-2"/>
+</form>
+
+    @if (Model.Leden.Count != 0)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>Voornaam</td>
+                    <td>Naam</td>
+                    <td>Geslacht</td>
+                    <td>Niveau</td>
+                    <td>Club</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var lid in Model.Leden)
+                {
+                    <tr>
+                        <td>@lid.Voornaam</td>
+                        <td>@lid.Naam</td>
+                        <td>@lid.Geslacht</td>
+                        <td>@lid.Niveau</td>
+                        <td>@lid.ClubNavigation.Naam</td>   @* niet vergeten Include nav parameter in query  *@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    @ViewBag.ErrorMessage
+
+

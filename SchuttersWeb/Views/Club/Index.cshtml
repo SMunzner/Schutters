@@ -1,0 +1,42 @@
+﻿    @model IEnumerable<Club>
+    @{
+        ViewData["Title"] = "Index";
+    }
+    <h2>Index</h2>
+    @if (Model == null || Model.Count()==0)
+    {
+        <h3>Er zijn geen clubs geregistreerd.</h3>
+    }
+    else
+    {
+        <div>
+            <a asp-action="Create">Create New</a>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Stamnr</td>
+                    <td>Clubnaam</td>
+                    <td>Postcode</td>
+                    <td>Gemeente</td>
+                    <td>Adres</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var club in Model)
+                {
+                    <tr>
+                        <td>@club.Stamnummer</td>
+                        <td>@club.Naam</td>
+                        <td>@club.Postcode</td>
+                        <td>@club.Gemeente</td>
+                        <td>@club.Adres</td>
+                        <td><a asp-action="Edit" asp-route-id="@club.Stamnummer">Edit</a></td>
+                        <td><a asp-action="Detail" asp-route-id="@club.Stamnummer">Details</a></td>
+                        <td><a asp-action="Delete" asp-route-id="@club.Stamnummer">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }

@@ -1,0 +1,47 @@
+﻿@model LidIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Index</h2>
+@if(Model == null || Model.Leden.Count() == 0)
+{
+    <h3>Er zijn geen leden geregistreerd</h3>
+}
+else
+{
+    <div>
+        <a asp-action="Create">Create New</a>
+        <a asp-action="Search">Search</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Lidnr</td>
+                <td>Naam</td>
+                <td>Voornaam</td>
+                <td>Geslacht</td>
+                <td>Niveau</td>
+                <td>Club</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var lid in Model.Leden)
+            {
+                <tr>
+                    <td>@lid.Lidnummer</td>
+                    <td>@lid.Naam</td>
+                    <td>@lid.Voornaam</td>
+                    <td>@lid.Geslacht</td>
+                    <td>@lid.Niveau</td>
+
+                    <td>@lid.ClubNavigation.Naam</td>   @* niet vergeten nav parameter Include in query lidrepo *@
+
+                    <td><a asp-action="Edit" asp-route-id="@lid.Lidnummer">Edit</a></td>
+                    <td><a asp-action="Detail" asp-route-id="@lid.Lidnummer">Details</a></td>
+                    <td><a asp-action="Delete" asp-route-id="@lid.Lidnummer">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,52 @@
+﻿@model Club
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1>Edit</h1>
+<h2>Club</h2>
+@if(Model != null)
+{
+<form asp-action="Edit" asp-route-itemId="@Model.Stamnummer" method="post">
+    <label asp-for="@Model.Stamnummer" class="form-label">
+        Stamnr
+    </label>
+    <input asp-for="@Model.Stamnummer" readonly />
+
+    <br />
+
+    <label asp-for="@Model.Naam" class="form-label">
+        Clubnaam
+    </label>
+    <input asp-for="@Model.Naam" />
+
+    <br />
+
+    <label asp-for="@Model.Postcode" class="form-label">
+        Postcode
+    </label>
+    <input asp-for="@Model.Postcode" />
+
+    <br />
+
+    <label asp-for="@Model.Gemeente" class="form-label">
+        Gemeente
+    </label>
+    <input asp-for="@Model.Gemeente" />
+
+    <br />
+
+    <label asp-for="@Model.Adres" class="form-label">
+        Adres
+    </label>
+    <input asp-for="@Model.Adres" />
+
+    <br />
+
+    <button type="submit" class="btn btn-success btn-lg">Save</button>
+</form>
+<a asp-action="Index">Back to List</a>
+}
+else{
+<p class="btn btn-danger">@ViewBag.ErrorMessage</p>
+}
+

@@ -1,0 +1,45 @@
+﻿@model LidEditViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<h2>Lid</h2>
+@if(Model != null)
+{
+    <form asp-action="CreateLid" method="post">
+        <label asp-for="@Model.Lid.Lidnummer" class="form-label">Lidnr</label>
+        <input asp-for="@Model.Lid.Lidnummer" />
+
+        <br />
+
+        <label asp-for="@Model.Lid.Naam" class="form-label">Naam</label>
+        <input asp-for="@Model.Lid.Naam" />
+
+        <br />
+
+        <label asp-for="@Model.Lid.Voornaam" class="form-label">Voornaam</label>
+        <input asp-for="@Model.Lid.Voornaam" />
+
+        <br />
+
+        <label asp-for="@Model.Lid.Geslacht" class="form-label">Geslacht</label>
+        <input asp-for="@Model.Lid.Geslacht" />
+
+        <br />
+
+        <label asp-for="@Model.Lid.Niveau" class="form-label">Niveau</label>
+        <input asp-for="@Model.Lid.Niveau" />
+
+        <br />
+
+        <label asp-for="@Model.Lid.Club" class="form-label">Club</label>
+        <select asp-for="@Model.Lid.Club" class="form-control" asp-items="@Model.Clubs"></select>
+
+        <br />
+
+        <button type="submit" class="btn btn-success btn-lg">Create</button>
+    </form>
+
+    <a asp-action="Index">Back to List</a>
+}

@@ -1,0 +1,40 @@
+﻿@model Club
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<h2>Club</h2>
+@if(Model != null)
+{
+    <form asp-action="CreateClub" method="post">
+        <label asp-for="@Model.Stamnummer" class="form-label">Stamnr</label>
+        <input asp-for="@Model.Stamnummer" />
+
+        <br />
+
+        <label asp-for="@Model.Naam" class="form-label">Clubnaam</label>
+        <input asp-for="@Model.Naam" />
+
+        <br />
+
+        <label asp-for="@Model.Postcode" class="form-label">Postcode</label>
+        <input asp-for="@Model.Postcode" />
+
+        <br />
+
+        <label asp-for="@Model.Gemeente" class="form-label">Gemeente</label>
+        <input asp-for="@Model.Gemeente" />
+
+        <br />
+
+        <label asp-for="@Model.Adres" class="form-label">Adres</label>
+        <input asp-for="@Model.Adres" />
+
+        <br />
+
+        <button type="submit" class="btn btn-success btn-lg">Create</button>
+    </form>
+
+    <a asp-action="Index" >Back to List</a>
+}
