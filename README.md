@@ -8,11 +8,14 @@ It serves as an online administration platform for rifle club members.
 - Create/Read/Udpate/Delete - members and clubs can be added, altered, displayed or deleted (by an admin)
 
 *Tech Stack*
-**Frontend:** Razor Pages, HTML, CSS
-**Backend:** ASP .NET Core, C#
-**Database:** Entity Framework Core, SQL Server
+- **Frontend:** Razor Pages, HTML, CSS
+- **Backend:** ASP .NET Core, C#
+- **Database:** Entity Framework Core, SQL Server
 
 *Created By*
+
 Simon Münzner - feel free to reach out!
+
 Email: munzner.simon@gmail.com
+
 LinkedIn: linkedin.com/in/munznersimon
